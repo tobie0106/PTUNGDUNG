@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Products</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: #333;
+            color: white;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* 1 dòng đen - 1 dòng trắng */
+        tbody tr:nth-child(even) {
+            background: #f2f2f2;
+        }
+
+        tbody tr:nth-child(odd) {
+            background: #ffffff;
+        }
+
+        img {
+            width: 100px;
+            height: auto;
+            object-fit: contain; /* hiển thị toàn bộ hình */
+        }
+
+        .controls {
+            margin-bottom: 15px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        button, select, input {
+            padding: 6px 10px;
+        }
+
+        .pagination {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Dashboard Products</h2>
+
+<div class="controls">
+    <input type="text" id="search" placeholder="Tìm theo title...">
+
+    <select id="pageSize">
+        <option value="5">5 / trang</option>
+        <option value="10">10 / trang</option>
+        <option value="20">20 / trang</option>
+    </select>
+
+    <button onclick="sortByPrice()">Giá ↑↓</button>
+    <button onclick="sortByTitle()">Tên ↑↓</button>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Ảnh</th>
+            <th>Title</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody id="productTable"></tbody>
+</table>
+
+<div class="pagination">
+    <button onclick="prevPage()">Prev</button>
+    <span id="pageInfo"></span>
+    <button onclick="nextPage()">Next</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
